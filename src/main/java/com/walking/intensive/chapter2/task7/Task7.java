@@ -9,7 +9,7 @@ public class Task7 {
 
         System.out.println(getFriendlyPair(startNumber));
         System.out.println();
-        msg(startNumber, getFriendlyPair(startNumber));
+        printMessage(startNumber, getFriendlyPair(startNumber));
 
     }
 
@@ -21,8 +21,8 @@ public class Task7 {
         int maxFriendlyPair = 0;
         for (int i = 1; i < m; i++) {
 
-            int quantityOfDivisors = sumOfDivisor(i);
-            int potentialPair = sumOfDivisor(quantityOfDivisors);
+            int quantityOfDivisors = calcDivisorSum(i);
+            int potentialPair = calcDivisorSum(quantityOfDivisors);
 
             if (potentialPair == i && quantityOfDivisors != i) {
                 maxFriendlyPair = Math.max(maxFriendlyPair, i);
@@ -33,7 +33,7 @@ public class Task7 {
     }
 
 
-    public static int sumOfDivisor(int x) {
+    public static int calcDivisorSum(int x) {
 
         int sum = 1;
 
@@ -49,7 +49,7 @@ public class Task7 {
         return sum;
     }
 
-    static void msg(int start, int end) {
+    static void printMessage(int start, int end) {
 
         if (end != 0) {
             System.out.println("Наибольшее число из пары дружественных чисел для " + start + ": " + end);
